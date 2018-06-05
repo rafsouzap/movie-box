@@ -24,9 +24,12 @@
 		F25018F220C710160003E4BB /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25018EF20C710160003E4BB /* ServiceError.swift */; };
 		F25018F320C710160003E4BB /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25018F020C710160003E4BB /* ServiceManager.swift */; };
 		F25018F620C7101C0003E4BB /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25018F420C7101C0003E4BB /* UIColorExtension.swift */; };
-		F25018F720C7101C0003E4BB /* NSObjectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25018F520C7101C0003E4BB /* NSObjectExtension.swift */; };
 		F25018FA20C710B30003E4BB /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25018F920C710B30003E4BB /* AppEnvironment.swift */; };
 		F250190220C713E20003E4BB /* MovieBoxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F250190120C713E20003E4BB /* MovieBoxTests.swift */; };
+		F293811E20C71B1E00441757 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F293811D20C71B1E00441757 /* SnapKit.framework */; };
+		F293812120C71F0200441757 /* ListItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293812020C71F0200441757 /* ListItemTableViewCell.swift */; };
+		F293812320C7220F00441757 /* NSObjectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293812220C7220F00441757 /* NSObjectExtension.swift */; };
+		F293812520C7291D00441757 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293812420C7291D00441757 /* UIViewExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,11 +62,14 @@
 		F25018EF20C710160003E4BB /* ServiceError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
 		F25018F020C710160003E4BB /* ServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
 		F25018F420C7101C0003E4BB /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
-		F25018F520C7101C0003E4BB /* NSObjectExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObjectExtension.swift; sourceTree = "<group>"; };
 		F25018F920C710B30003E4BB /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
 		F25018FF20C713E20003E4BB /* MovieBoxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieBoxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F250190120C713E20003E4BB /* MovieBoxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieBoxTests.swift; sourceTree = "<group>"; };
 		F250190320C713E20003E4BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F293811D20C71B1E00441757 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
+		F293812020C71F0200441757 /* ListItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemTableViewCell.swift; sourceTree = "<group>"; };
+		F293812220C7220F00441757 /* NSObjectExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObjectExtension.swift; sourceTree = "<group>"; };
+		F293812420C7291D00441757 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F293811E20C71B1E00441757 /* SnapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +96,7 @@
 			children = (
 				F25018AD20C70E820003E4BB /* MovieBox */,
 				F250190020C713E20003E4BB /* MovieBoxTests */,
+				F250190A20C71AEC0003E4BB /* Frameworks */,
 				F25018AC20C70E820003E4BB /* Products */,
 			);
 			sourceTree = "<group>";
@@ -227,6 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				F25018E420C70FD80003E4BB /* ListTableViewController.swift */,
+				F293812020C71F0200441757 /* ListItemTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -241,8 +250,9 @@
 		F25018EC20C70FF60003E4BB /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				F25018F520C7101C0003E4BB /* NSObjectExtension.swift */,
+				F293812220C7220F00441757 /* NSObjectExtension.swift */,
 				F25018F420C7101C0003E4BB /* UIColorExtension.swift */,
+				F293812420C7291D00441757 /* UIViewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -274,6 +284,14 @@
 			path = MovieBoxTests;
 			sourceTree = "<group>";
 		};
+		F250190A20C71AEC0003E4BB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F293811D20C71B1E00441757 /* SnapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -284,6 +302,7 @@
 				F25018A720C70E820003E4BB /* Sources */,
 				F25018A820C70E820003E4BB /* Frameworks */,
 				F25018A920C70E820003E4BB /* Resources */,
+				F293811F20C71B3F00441757 /* Carthage - Copy Frameworks */,
 			);
 			buildRules = (
 			);
@@ -370,18 +389,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		F293811F20C71B3F00441757 /* Carthage - Copy Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/SnapKit.framework",
+			);
+			name = "Carthage - Copy Frameworks";
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SnapKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F25018A720C70E820003E4BB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				F25018F220C710160003E4BB /* ServiceError.swift in Sources */,
-				F25018F720C7101C0003E4BB /* NSObjectExtension.swift in Sources */,
+				F293812320C7220F00441757 /* NSObjectExtension.swift in Sources */,
 				F25018F620C7101C0003E4BB /* UIColorExtension.swift in Sources */,
 				F25018DB20C70F890003E4BB /* NavigationPresenter.swift in Sources */,
 				F25018B120C70E820003E4BB /* ViewController.swift in Sources */,
 				F25018FA20C710B30003E4BB /* AppEnvironment.swift in Sources */,
+				F293812520C7291D00441757 /* UIViewExtension.swift in Sources */,
 				F25018E820C70FE10003E4BB /* ListPresenter.swift in Sources */,
+				F293812120C71F0200441757 /* ListItemTableViewCell.swift in Sources */,
 				F25018F320C710160003E4BB /* ServiceManager.swift in Sources */,
 				F25018DF20C70F920003E4BB /* NavigationRouter.swift in Sources */,
 				F25018E920C70FE10003E4BB /* ListViewProtocol.swift in Sources */,
@@ -551,11 +591,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/MovieBox/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = moviebox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -567,11 +612,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/MovieBox/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = moviebox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -589,7 +639,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = c.MovieBoxTests;
+				PRODUCT_BUNDLE_IDENTIFIER = moviebox.MovieBoxTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -608,7 +658,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = c.MovieBoxTests;
+				PRODUCT_BUNDLE_IDENTIFIER = moviebox.MovieBoxTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

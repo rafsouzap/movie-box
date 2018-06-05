@@ -28,9 +28,10 @@ extension UIColor {
 
 extension UIColor {
     
-    static let lightenGray = UIColor(hexadecimal: 0xFCFCFC)
-    static let pink = UIColor(hexadecimal: 0xEA4C89)
-    static let blueLink = UIColor(hexadecimal: 0x4A90E2)
-    static let charcoal = UIColor(hexadecimal: 0x4A4A4A)
-    static let slate = UIColor(hexadecimal: 0x9DA3A5)
+    static let customRed = UIColor(hexadecimal: 0xBC002D)
+    static let customBlue = UIColor(hexadecimal: 0x3A8BBB)
+    static let customDarkGray = UIColor(hexadecimal: 0x444444)
+    static let customGray = UIColor(hexadecimal: 0x9DA3A5)
+    static let customLightGray = UIColor(hexadecimal: 0xFCFCFC)
+    static let customGreen = UIColor(hexadecimal: 0x66CC99)
 }

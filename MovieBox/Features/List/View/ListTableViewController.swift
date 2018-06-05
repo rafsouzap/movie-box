@@ -14,14 +14,12 @@ final class ListTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-         self.clearsSelectionOnViewWillAppear = true
+        self.title = "MovieBox"
+        self.setupLayout()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.setupLayout()
     }
 }
 
@@ -30,14 +28,20 @@ final class ListTableViewController: UITableViewController {
 extension ListTableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 10
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-        cell.backgroundColor = .clear
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ListItemTableViewCell.identifier, for: indexPath) as? ListItemTableViewCell else {
+            fatalError("Couldn't dequeue \(ListItemTableViewCell.identifier)")
+        }
+
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("==> didSelectRowAt \(indexPath.row)")
     }
 }
 
@@ -46,8 +50,10 @@ extension ListTableViewController {
 extension ListTableViewController {
     
     fileprivate func setupLayout() {
-        self.tableView.backgroundColor = .lightenGray
-        self.tableView.rowHeight = 130
+        self.tableView.backgroundColor = .customLightGray
+        self.tableView.rowHeight = 140
+        self.tableView.separatorStyle = .none
+        self.tableView.register(ListItemTableViewCell.self, forCellReuseIdentifier: ListItemTableViewCell.identifier)
     }
 }
 

@@ -17,6 +17,10 @@ final class ListTableViewController: UITableViewController {
         super.viewDidLoad()
         self.title = "MovieBox"
         self.setupLayout()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.loadData()
     }
 }

@@ -36,6 +36,7 @@
 		F293812120C71F0200441757 /* ListItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293812020C71F0200441757 /* ListItemTableViewCell.swift */; };
 		F293812320C7220F00441757 /* NSObjectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293812220C7220F00441757 /* NSObjectExtension.swift */; };
 		F293812520C7291D00441757 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293812420C7291D00441757 /* UIViewExtension.swift */; };
+		F293812E20C83EFA00441757 /* MovieDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293812D20C83EFA00441757 /* MovieDetail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		F293812220C7220F00441757 /* NSObjectExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObjectExtension.swift; sourceTree = "<group>"; };
 		F293812420C7291D00441757 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		F293812820C820FE00441757 /* SVProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVProgressHUD.framework; path = Carthage/Build/iOS/SVProgressHUD.framework; sourceTree = "<group>"; };
+		F293812D20C83EFA00441757 /* MovieDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +145,7 @@
 		8D7E32E120C77737009D644A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F293812D20C83EFA00441757 /* MovieDetail.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -181,8 +184,8 @@
 			isa = PBXGroup;
 			children = (
 				8D7E32DD20C77720009D644A /* Detail */,
-				F25018D320C70F3F0003E4BB /* Navigation */,
 				F25018D220C70F3B0003E4BB /* List */,
+				F25018D320C70F3F0003E4BB /* Navigation */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -490,6 +493,7 @@
 				8D7E32F220C78621009D644A /* ImageLoader.swift in Sources */,
 				F25018F120C710160003E4BB /* RequestMethod.swift in Sources */,
 				F25018D920C70F820003E4BB /* Routes.swift in Sources */,
+				F293812E20C83EFA00441757 /* MovieDetail.swift in Sources */,
 				F25018DD20C70F8E0003E4BB /* NavigationViewController.swift in Sources */,
 				F25018AF20C70E820003E4BB /* AppDelegate.swift in Sources */,
 				8D7E32E320C77754009D644A /* DetailRouter.swift in Sources */,

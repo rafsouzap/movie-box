@@ -8,11 +8,12 @@
 
 final class DetailRouter {
     
-    func show(at navigation: NavigationViewController) {
+    func show(at navigation: NavigationViewController, with movieId: Int) {
         
         let controller = DetailViewController()
         let presenter = DetailPresenter(view: controller)
         controller.presenter = presenter
+        controller.movieId = movieId
         
         navigation.show(controller, sender: nil)
     }

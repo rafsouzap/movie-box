@@ -29,7 +29,7 @@ extension NavigationPresenter {
             ListRouter().present(at: self.view)
             
         case .detail:
-            DetailRouter().show(at: self.view)
+            DetailRouter().show(at: self.view, with: item as! Int)
         }
     }
 }

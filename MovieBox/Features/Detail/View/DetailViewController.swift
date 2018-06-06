@@ -12,6 +12,16 @@ import SVProgressHUD
 class DetailViewController: UIViewController {
 
     var presenter: DetailPresenter?
+    var movieId: Int?
+    
+    @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var backdropImageView: UIImageView!
+    @IBOutlet weak var posterImageView: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var overviewLabel: UILabel!
+    @IBOutlet weak var releaseDateLabel: UILabel!
+    @IBOutlet weak var scoreValueLabel: UILabel!
+    @IBOutlet weak var genreValueLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +32,7 @@ class DetailViewController: UIViewController {
 extension DetailViewController: DetailViewProtocol {
     
     func showLoading() {
-        SVProgressHUD.show(withStatus: "Loading popular movies")
+        SVProgressHUD.show(withStatus: "Loading movie details")
         SVProgressHUD.setDefaultMaskType(.clear)
         SVProgressHUD.setBackgroundColor(UIColor.darkGray.withAlphaComponent(0.3))
         SVProgressHUD.setFont(UIFont.systemFont(ofSize: 15, weight: .semibold))

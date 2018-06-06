@@ -12,7 +12,6 @@ final class ListPresenter {
     
     fileprivate unowned var view: ListViewProtocol
     fileprivate let service: MovieService
-    //fileprivate(set) var products: [ProductView] = []
     fileprivate(set) var movies: [Movie] = []
     
     init(view: ListViewProtocol) {
@@ -37,10 +36,10 @@ extension ListPresenter {
     }
     
     func showMovieDetail(by index: Int) {
+        let movie = self.movies[index]
         let navigation = (UIApplication.shared.delegate as? AppDelegate)?.navigation?.presenter
-        navigation?.go(to: .detail)
+        navigation?.go(to: .detail, with: movie.id)
     }
-
 }
 
 // MARK: - Private methods

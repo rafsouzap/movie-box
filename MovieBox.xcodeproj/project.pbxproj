@@ -33,7 +33,6 @@
 		F25018F620C7101C0003E4BB /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25018F420C7101C0003E4BB /* UIColorExtension.swift */; };
 		F25018FA20C710B30003E4BB /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25018F920C710B30003E4BB /* AppEnvironment.swift */; };
 		F250190220C713E20003E4BB /* MovieBoxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F250190120C713E20003E4BB /* MovieBoxTests.swift */; };
-		F293811E20C71B1E00441757 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F293811D20C71B1E00441757 /* SnapKit.framework */; };
 		F293812120C71F0200441757 /* ListItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293812020C71F0200441757 /* ListItemTableViewCell.swift */; };
 		F293812320C7220F00441757 /* NSObjectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293812220C7220F00441757 /* NSObjectExtension.swift */; };
 		F293812520C7291D00441757 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293812420C7291D00441757 /* UIViewExtension.swift */; };
@@ -80,10 +79,10 @@
 		F25018FF20C713E20003E4BB /* MovieBoxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieBoxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F250190120C713E20003E4BB /* MovieBoxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieBoxTests.swift; sourceTree = "<group>"; };
 		F250190320C713E20003E4BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F293811D20C71B1E00441757 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		F293812020C71F0200441757 /* ListItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemTableViewCell.swift; sourceTree = "<group>"; };
 		F293812220C7220F00441757 /* NSObjectExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObjectExtension.swift; sourceTree = "<group>"; };
 		F293812420C7291D00441757 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		F293812820C820FE00441757 /* SVProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVProgressHUD.framework; path = Carthage/Build/iOS/SVProgressHUD.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +90,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F293811E20C71B1E00441757 /* SnapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,14 +143,6 @@
 		8D7E32E120C77737009D644A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		8D7E32EC20C77E51009D644A /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				8D7E32ED20C77E5F009D644A /* Movie.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -222,7 +212,6 @@
 		F25018D120C70F2E0003E4BB /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				8D7E32EC20C77E51009D644A /* Model */,
 				8D7E32EF20C78061009D644A /* MovieService.swift */,
 			);
 			path = Services;
@@ -312,6 +301,7 @@
 		F25018E320C70FB70003E4BB /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8D7E32ED20C77E5F009D644A /* Movie.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -356,7 +346,7 @@
 		F250190A20C71AEC0003E4BB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F293811D20C71B1E00441757 /* SnapKit.framework */,
+				F293812820C820FE00441757 /* SVProgressHUD.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -466,11 +456,11 @@
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/SnapKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SVProgressHUD.framework",
 			);
 			name = "Carthage - Copy Frameworks";
 			outputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SnapKit.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SVProgressHUD.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

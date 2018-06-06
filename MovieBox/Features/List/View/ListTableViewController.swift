@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 final class ListTableViewController: UITableViewController {
 
@@ -16,15 +17,7 @@ final class ListTableViewController: UITableViewController {
         super.viewDidLoad()
         self.title = "MovieBox"
         self.setupLayout()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        guard let presenter = self.presenter else {
-            fatalError("Presenter cannot be nil")
-        }
-        presenter.loadPopularMovies()
+        self.loadData()
     }
 }
 
@@ -72,6 +65,14 @@ extension ListTableViewController {
         self.tableView.separatorStyle = .none
         self.tableView.register(UINib(nibName: ListItemTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: ListItemTableViewCell.identifier)
     }
+    
+    fileprivate func loadData() {
+        
+        guard let presenter = self.presenter else {
+            fatalError("Presenter cannot be nil")
+        }
+        presenter.loadPopularMovies()
+    }
 }
 
 // MARK: - ViewProtocol methods
@@ -79,11 +80,15 @@ extension ListTableViewController {
 extension ListTableViewController: ListViewProtocol {
     
     func showLoading() {
-        
+        SVProgressHUD.show(withStatus: "Loading popular movies")
+        SVProgressHUD.setDefaultMaskType(.clear)
+        SVProgressHUD.setBackgroundColor(UIColor.darkGray.withAlphaComponent(0.3))
+        SVProgressHUD.setFont(UIFont.systemFont(ofSize: 15, weight: .semibold))
+        SVProgressHUD.setForegroundColor(.white)
     }
     
     func hideLoading() {
-        
+        SVProgressHUD.dismiss(withDelay: 1)
     }
     
     func reloadTableView() {

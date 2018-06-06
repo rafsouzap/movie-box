@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class DetailViewController: UIViewController {
 
@@ -14,36 +15,31 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        self.title = "Movie Details"
     }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.isNavigationBarHidden = true
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    @IBAction func didBackTouched(_ sender: UIButton) {
-        self.navigationController?.popViewController(animated: true)
-    }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 extension DetailViewController: DetailViewProtocol {
     
+    func showLoading() {
+        SVProgressHUD.show(withStatus: "Loading popular movies")
+        SVProgressHUD.setDefaultMaskType(.clear)
+        SVProgressHUD.setBackgroundColor(UIColor.darkGray.withAlphaComponent(0.3))
+        SVProgressHUD.setFont(UIFont.systemFont(ofSize: 15, weight: .semibold))
+        SVProgressHUD.setForegroundColor(.white)
+    }
+    
+    func hideLoading() {
+        SVProgressHUD.dismiss(withDelay: 1)
+    }
+    
+    func reloadTableView() {
+        
+    }
+    
+    func showAlertError(title: String, message: String, buttonTitle: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: buttonTitle, style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
 }

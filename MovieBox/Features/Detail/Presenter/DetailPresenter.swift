@@ -12,7 +12,7 @@ final class DetailPresenter {
     
     fileprivate unowned var view: DetailViewProtocol
     fileprivate let service: MovieService
-    fileprivate(set) var movie: MovieDetail?
+    fileprivate(set) var movie: MovieDetailViewData?
     
     init(view: DetailViewProtocol) {
         self.view = view
@@ -28,8 +28,8 @@ extension DetailPresenter {
         
         self.view.showLoading()
         self.service.getMovieDetail(id: id, success: { result in
-            // receber e tratar o objeto
-            self.showView()
+            let viewData = MovieDetailViewData(with: result)
+            self.showView(with: viewData)
         }, failure: { fail in
             self.requestError(description: fail.description)
         })
@@ -40,9 +40,9 @@ extension DetailPresenter {
 
 extension DetailPresenter {
     
-    fileprivate func showView() {
+    fileprivate func showView(with movie: MovieDetailViewData) {
         self.view.hideLoading()
-        self.view.reloadTableView()
+        self.view.setMovieDetail(with: movie)
     }
     
     fileprivate func requestError(description: String) {

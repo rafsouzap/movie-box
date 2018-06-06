@@ -22,18 +22,15 @@ final class ListItemTableViewCell: UITableViewCell {
         self.setupLayout()
     }
     
-    func fillOutlets(with movie: Movie) {
+    func fillOutlets(with movie: MovieViewData) {
         self.titleLabel.text = movie.title
         self.overviewLabel.text = movie.overview
-        self.votesLabel.text = "\(movie.voteCount)"
+        self.votesLabel.text = "\(movie.votes)"
         
-        let imageUrl = AppEnvironment.imageBaseUrl(width: Int(self.coverImageView.bounds.width)).value.appending(movie.posterPath)
+        let imageUrl = AppEnvironment.imageBaseUrl(width: Int(self.coverImageView.bounds.width)).value.appending(movie.imageUrl)
         
         ImageLoader.shared.imageForUrl(urlString: imageUrl, completion: { image, url in
-            guard let image = image else {
-                //self.coverImageView.image = #imageLiteral(resourceName: "StarIcon")
-                return
-            }
+            guard let image = image else { return }
             self.coverImageView.image = image
         })
     }

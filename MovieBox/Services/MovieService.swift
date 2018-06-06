@@ -17,20 +17,20 @@ final class MovieService {
                           "page": page] as [String : Any]
 
         ServiceManager.shared.request(url: apiUrl, method: .get, queryParameters: parameters, success: { result in
-            let response = try! JSONDecoder().decode(Movies.self, from: result)
+            let response = try! JSONDecoder().decode(PopularMovie.self, from: result)
             success(response.results)
         }, failure: { fail in
             failure(ServiceError(code: fail.code))
         })
     }
     
-    func getMovieDetail(id: Int, success: @escaping (MovieDetail) -> Void, failure: @escaping (_ error: ServiceError) -> Void) {
+    func getMovieDetail(id: Int, success: @escaping (Movie) -> Void, failure: @escaping (_ error: ServiceError) -> Void) {
         
         let apiUrl = AppEnvironment.ServiceApi.detailMovie(movieId: id).value
         let parameters = ["api_key": AppEnvironment.apiKey.value] as [String : Any]
         
         ServiceManager.shared.request(url: apiUrl, method: .get, queryParameters: parameters, success: { result in
-            let response = try! JSONDecoder().decode(MovieDetail.self, from: result)
+            let response = try! JSONDecoder().decode(Movie.self, from: result)
             success(response)
         }, failure: { fail in
             failure(ServiceError(code: fail.code))

@@ -12,7 +12,8 @@ final class ListPresenter {
     
     fileprivate unowned var view: ListViewProtocol
     fileprivate let service: MovieService
-    fileprivate(set) var movies: [Movie] = []
+    fileprivate(set) var movies: [MovieViewData] = []
+    fileprivate var pageIndex = 1
     
     init(view: ListViewProtocol) {
         self.view = view
@@ -24,15 +25,13 @@ final class ListPresenter {
 
 extension ListPresenter {
 
-    func loadPopularMovies(page: Int = 1) {
-        
-        self.view.showLoading()
-        self.service.getPopularMovies(page: page, success: { result in
-            self.movies.append(contentsOf: result)
-            self.showView()
-        }, failure: { fail in
-            self.requestError(description: fail.description)
-        })
+    func loadPopularMovies() {
+        self.loadMovies(firstLoad: true)
+    }
+    
+    func loadMorePopularMovies() {
+        self.pageIndex += 1
+        self.loadMovies(firstLoad: false, page: self.pageIndex)
     }
     
     func showMovieDetail(by index: Int) {
@@ -45,6 +44,24 @@ extension ListPresenter {
 // MARK: - Private methods
 
 extension ListPresenter {
+    
+    fileprivate func loadMovies(firstLoad: Bool, page: Int = 1) {
+        
+        self.view.showLoading()
+        self.service.getPopularMovies(page: page, success: { result in
+            
+            let viewData = result.compactMap { MovieViewData(with: $0) }
+            
+            if firstLoad {
+                self.movies = viewData
+            } else {
+                self.movies.append(contentsOf: viewData)
+            }
+            self.showView()
+        }, failure: { fail in
+            self.requestError(description: fail.description)
+        })
+    }
     
     fileprivate func showView() {
         self.view.hideLoading()

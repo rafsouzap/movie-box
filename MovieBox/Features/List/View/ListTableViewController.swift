@@ -53,6 +53,19 @@ extension ListTableViewController {
         }
         presenter.showMovieDetail(by: indexPath.row)
     }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        guard let presenter = self.presenter else {
+            fatalError("Presenter cannot be nil")
+        }
+        let moviesPerPage = 20
+        let countMovies = presenter.movies.count
+        
+        if countMovies - 1 == indexPath.row && countMovies % moviesPerPage == 0 {
+            presenter.loadMorePopularMovies()
+        }
+    }
 }
 
 // MARK: - Private methods
@@ -80,11 +93,10 @@ extension ListTableViewController {
 extension ListTableViewController: ListViewProtocol {
     
     func showLoading() {
-        SVProgressHUD.show(withStatus: "Loading popular movies")
-        SVProgressHUD.setDefaultMaskType(.clear)
-        SVProgressHUD.setBackgroundColor(UIColor.darkGray.withAlphaComponent(0.3))
+        SVProgressHUD.show(withStatus: "Loading...")
+        SVProgressHUD.setDefaultMaskType(.black)
         SVProgressHUD.setFont(UIFont.systemFont(ofSize: 15, weight: .semibold))
-        SVProgressHUD.setForegroundColor(.white)
+        SVProgressHUD.setForegroundColor(.customDarkGray)
     }
     
     func hideLoading() {

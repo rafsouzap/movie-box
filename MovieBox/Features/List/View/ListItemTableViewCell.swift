@@ -7,36 +7,35 @@
 //
 
 import UIKit
-import SnapKit
 
 final class ListItemTableViewCell: UITableViewCell {
 
-    let viewPadding: CGFloat = 15
-    var containerView: UIView!
-    var coverImageView: UIImageView!
+    @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var coverImageView: UIImageView!
+    @IBOutlet weak var starImageView: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var overviewLabel: UILabel!
+    @IBOutlet weak var votesLabel: UILabel!
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        self.backgroundColor = .clear
-        self.selectionStyle = .none
-        
-        self.containerView = UIView(frame: CGRect.zero)
-        self.containerView.backgroundColor = .white
-        
-        self.coverImageView = UIImageView(frame: CGRect.zero)
-        self.coverImageView.backgroundColor = .customGray
-
-        self.containerView.addSubview(self.coverImageView)
-        self.contentView.addSubview(self.containerView)
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
+    override func awakeFromNib() {
+        super.awakeFromNib()
         self.setupLayout()
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+    func fillOutlets(with movie: Movie) {
+        self.titleLabel.text = movie.title
+        self.overviewLabel.text = movie.overview
+        self.votesLabel.text = "\(movie.voteCount)"
+        
+        let imageUrl = AppEnvironment.imageBaseUrl(width: Int(self.coverImageView.bounds.width)).value.appending(movie.posterPath)
+        
+        ImageLoader.shared.imageForUrl(urlString: imageUrl, completion: { image, url in
+            guard let image = image else {
+                //self.coverImageView.image = #imageLiteral(resourceName: "StarIcon")
+                return
+            }
+            self.coverImageView.image = image
+        })
     }
 }
 
@@ -45,19 +44,13 @@ final class ListItemTableViewCell: UITableViewCell {
 extension ListItemTableViewCell {
     
     fileprivate func setupLayout() {
-        self.containerView.snp.makeConstraints { (make) -> Void in
-            make.left.equalTo(self.contentView).offset(viewPadding)
-            make.right.equalTo(self.contentView).offset(-viewPadding)
-            make.top.equalTo(self.contentView).offset(viewPadding)
-            make.bottom.equalTo(self.contentView)
-        }
+        self.backgroundColor = .clear
+        self.selectionStyle = .none
+    
         self.containerView.setGlow()
-        
-        self.coverImageView.snp.makeConstraints { (make) -> Void in
-            make.left.equalTo(self.containerView)
-            make.top.equalTo(self.containerView)
-            make.bottom.equalTo(self.containerView)
-            make.width.equalTo(92)
-        }
+        self.titleLabel.textColor = .customRed
+        self.overviewLabel.textColor = .customDarkGray
+        self.starImageView.tintColor = .customGray
+        self.votesLabel.textColor = .customGray
     }
 }

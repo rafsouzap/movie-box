@@ -15,6 +15,7 @@ final class NavigationRouter {
         let controller = NavigationViewController()
         let presenter = NavigationPresenter(view: controller)
         controller.presenter = presenter
+        
         window?.rootViewController = controller
     }
 }

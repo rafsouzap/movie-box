@@ -8,11 +8,12 @@
 
 final class ListRouter {
     
-    func show(at navigation: NavigationViewController) {
+    func present(at navigation: NavigationViewController) {
         
         let controller = ListTableViewController()
-        let presenter = ListPresenter(view: controller, router: self)
+        let presenter = ListPresenter(view: controller)
         controller.presenter = presenter
-        navigation.show(controller, sender: nil)
+        
+        navigation.setViewControllers([controller], animated: true)
     }
 }

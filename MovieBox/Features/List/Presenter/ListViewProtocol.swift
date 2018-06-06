@@ -7,5 +7,8 @@
 //
 
 protocol ListViewProtocol: class {
-    
+    func showLoading()
+    func hideLoading()
+    func reloadTableView()
+    func showAlertError(title: String, message: String, buttonTitle: String)
 }

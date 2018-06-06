@@ -26,9 +26,10 @@ extension NavigationPresenter {
         
         switch route {
         case .list:
-            ListRouter().show(at: self.view)
+            ListRouter().present(at: self.view)
             
-        case .detail: break
+        case .detail:
+            DetailRouter().show(at: self.view)
         }
     }
 }
